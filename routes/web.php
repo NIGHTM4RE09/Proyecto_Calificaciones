@@ -114,13 +114,13 @@ Route::middleware(['auth'])->group(function () {
             Route::post('agregar/ambito-escolar', [ExpedientesController::class, 'aecreate'])->middleware('can:Expediente Alumno')->name('ambitoescolar.store');
             Route::get('editar/ambito-escolar/{ambito}', [ExpedientesController::class, 'aeedit'])->middleware('can:Expediente Alumno')->name('ambitoescolar.edit');
             Route::put('editar/ambito-escolar/{ambito}', [ExpedientesController::class, 'aeupdate'])->middleware('can:Expediente Alumno')->name('ambitoescolar.update');
-            Route::delete('eliminar/ambito-escolar/{ambito}', [ExpedientesController::class, 'aestroy'])->middleware('can:Expediente Alumno')->name('ambitoescolar.destroy');
+            Route::delete('eliminar/ambito-escolar/{ambito}', [ExpedientesController::class, 'aedestroy'])->middleware('can:Expediente Alumno')->name('ambitoescolar.destroy');
 
             Route::get('agregar/ambito-familiar', [ExpedientesController::class, 'ambitofamiliar'])->middleware('can:Expediente Alumno')->name('ambitofamiliar.create');
             Route::post('agregar/ambito-familiar', [ExpedientesController::class, 'afcreate'])->middleware('can:Expediente Alumno')->name('ambitofamiliar.store');
             Route::get('editar/ambito-familiar/{ambitof}', [ExpedientesController::class, 'afedit'])->middleware('can:Expediente Alumno')->name('ambitofamiliar.edit');
             Route::put('editar/ambito-familiar/{ambitof}', [ExpedientesController::class, 'afupdate'])->middleware('can:Expediente Alumno')->name('ambitofamiliar.update');
-            Route::delete('eliminar/ambito-familiar/{ambitof}', [ExpedientesController::class, 'afstroy'])->middleware('can:Expediente Alumno')->name('ambitofamiliar.destroy');
+            Route::delete('eliminar/ambito-familiar/{ambitof}', [ExpedientesController::class, 'afdestroy'])->middleware('can:Expediente Alumno')->name('ambitofamiliar.destroy');
             
             Route::get('agregar/area-socioeconomica', [ExpedientesController::class, 'areasocioeconomica'])->middleware('can:Expediente Alumno')->name('area.create');
             Route::post('agregar/area-socioeconomica', [ExpedientesController::class, 'acreate'])->middleware('can:Expediente Alumno')->name('area.store');

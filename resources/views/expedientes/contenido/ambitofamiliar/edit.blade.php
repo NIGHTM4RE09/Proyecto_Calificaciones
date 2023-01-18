@@ -14,7 +14,7 @@
 <section class="card">
     <div class="card-block">
         <div class="row">
-            <form action="{{route('ambitofamiliar.update' , [$ciclo, $nivel, $grupo, $alumno, $ambitof])}}" method="POST">
+            <form action="{{route('ambitofamiliar.update' , [$ciclo, $nivel, $grupo, $alumno, $ambitofamiliar])}}" method="POST">
                 @csrf
                 @method('put')
 
@@ -35,50 +35,50 @@
                                     <td>Con relación a su padre</td>
                                     <td class="text-center">
                                         <div class="radio">
-                                            @if ($ambitof->padre == 'Excelente')
-                                                <input id="radio_26" name="padre" type="radio" checked>
+                                            @if ($ambitofamiliar->padre == 'Excelente')
+                                                <input id="radio_26" name="padre" type="radio" checked value="{{$ambitofamiliar->padre}}">
                                             @else
-                                                <input id="radio_26" name="padre" type="radio" disabled>
+                                                <input id="radio_26" name="padre" type="radio" value="Excelente">
                                             @endif
                                             <label for="radio_26"></label>
                                         </div>
                                     </td>
                                     <td class="text-center">
                                         <div class="radio">
-                                            @if ($ambitof->padre == 'Bueno')
-                                                <input id="radio_27" name="padre" type="radio" checked>
+                                            @if ($ambitofamiliar->padre == 'Bueno')
+                                                <input id="radio_27" name="padre" type="radio" checked value="{{$ambitofamiliar->padre}}">
                                             @else
-                                                <input id="radio_27" name="padre" type="radio" disabled>
+                                                <input id="radio_27" name="padre" type="radio" value="Bueno">
                                             @endif
                                             <label for="radio_27"></label>
                                         </div>
                                     </td>
                                     <td class="text-center">
                                         <div class="radio">
-                                            @if ($ambitof->padre == 'Normal')
-                                                <input id="radio_28" name="padre" type="radio" checked>
+                                            @if ($ambitofamiliar->padre == 'Normal')
+                                                <input id="radio_28" name="padre" type="radio" checked value="{{$ambitofamiliar->padre}}">
                                             @else
-                                                <input id="radio_28" name="padre" type="radio" disabled>
+                                                <input id="radio_28" name="padre" type="radio" value="Normal">
                                             @endif
                                             <label for="radio_28"></label>
                                         </div>
                                     </td>
                                     <td class="text-center">
                                         <div class="radio">
-                                            @if ($ambitof->padre == 'Regular')
-                                                <input id="radio_29" name="padre" type="radio" checked>
+                                            @if ($ambitofamiliar->padre == 'Regular')
+                                                <input id="radio_29" name="padre" type="radio" checked value="{{$ambitofamiliar->padre}}">
                                             @else
-                                                <input id="radio_29" name="padre" type="radio" disabled>
+                                                <input id="radio_29" name="padre" type="radio" value="Regular">
                                             @endif
                                             <label for="radio_29"></label>
                                         </div>
                                     </td>
                                     <td class="text-center">
                                         <div class="radio">
-                                            @if ($ambitof->padre == 'Malo')
-                                                <input id="radio_30" name="padre" type="radio" checked>
+                                            @if ($ambitofamiliar->padre == 'Malo')
+                                                <input id="radio_30" name="padre" type="radio" checked value="{{$ambitofamiliar->padre}}">
                                             @else
-                                                <input id="radio_30" name="padre" type="radio" disabled>
+                                                <input id="radio_30" name="padre" type="radio" value="Malo">
                                             @endif
                                             <label for="radio_30"></label>
                                         </div>
@@ -88,50 +88,50 @@
                                     <td>Con relación a su madre</td>
                                     <td class="text-center">
                                         <div class="radio">
-                                            @if ($ambitof->madre == 'Excelente')
-                                                <input id="radio_31" name="madre" type="radio" checked>
+                                            @if ($ambitofamiliar->madre == 'Excelente')
+                                                <input id="radio_31" name="madre" type="radio" checked value="{{$ambitofamiliar->madre}}">
                                             @else
-                                                <input id="radio_31" name="madre" type="radio" disabled>
+                                                <input id="radio_31" name="madre" type="radio" value="Excelente">
                                             @endif
                                             <label for="radio_31"></label>
                                         </div>
                                     </td>
                                     <td class="text-center">
                                         <div class="radio">
-                                            @if ($ambitof->madre == 'Bueno')
-                                                <input id="radio_32" name="madre" type="radio" checked>
+                                            @if ($ambitofamiliar->madre == 'Bueno')
+                                                <input id="radio_32" name="madre" type="radio" checked value="{{$ambitofamiliar->madre}}">
                                             @else
-                                                <input id="radio_32" name="madre" type="radio" disabled>
+                                                <input id="radio_32" name="madre" type="radio" value="Bueno">
                                             @endif
                                             <label for="radio_32"></label>
                                         </div>
                                     </td>
                                     <td class="text-center">
                                         <div class="radio">
-                                            @if ($ambitof->madre == 'Normal')
-                                                <input id="radio_33" name="madre" type="radio" checked>
+                                            @if ($ambitofamiliar->madre == 'Normal')
+                                                <input id="radio_33" name="madre" type="radio" checked value="{{$ambitofamiliar->madre}}">
                                             @else
-                                                <input id="radio_33" name="madre" type="radio" disabled>
+                                                <input id="radio_33" name="madre" type="radio" value="Normal">
                                             @endif
                                             <label for="radio_33"></label>
                                         </div>
                                     </td>
                                     <td class="text-center">
                                         <div class="radio">
-                                            @if ($ambitof->madre == 'Regular')
-                                                <input id="radio_34" name="madre" type="radio" checked>
+                                            @if ($ambitofamiliar->madre == 'Regular')
+                                                <input id="radio_34" name="madre" type="radio" checked value="{{$ambitofamiliar->madre}}">
                                             @else
-                                                <input id="radio_34" name="madre" type="radio" disabled>
+                                                <input id="radio_34" name="madre" type="radio" value="Regular">
                                             @endif
                                             <label for="radio_34"></label>
                                         </div>
                                     </td>
                                     <td class="text-center">
                                         <div class="radio">
-                                            @if ($ambitof->madre == 'Malo')
-                                                <input id="radio_35" name="madre" type="radio" checked>
+                                            @if ($ambitofamiliar->madre == 'Malo')
+                                                <input id="radio_35" name="madre" type="radio" checked value="{{$ambitofamiliar->madre}}">
                                             @else
-                                                <input id="radio_35" name="madre" type="radio" disabled>
+                                                <input id="radio_35" name="madre" type="radio" value="Malo">
                                             @endif
                                             <label for="radio_35"></label>
                                         </div>
@@ -141,50 +141,50 @@
                                     <td>Con relación al cumplimiento de las responsabilidades que tenga asignadas</td>
                                     <td class="text-center">
                                         <div class="radio">
-                                            @if ($ambitof->responsabilidades == 'Excelente')
-                                                <input id="radio_36" name="responsabilidades" type="radio" checked>
+                                            @if ($ambitofamiliar->responsabilidades == 'Excelente')
+                                                <input id="radio_36" name="responsabilidades" type="radio" checked value="{{$ambitofamiliar->responsabilidades}}">
                                             @else
-                                                <input id="radio_36" name="responsabilidades" type="radio" disabled>
+                                                <input id="radio_36" name="responsabilidades" type="radio" value="Excelente">
                                             @endif
                                             <label for="radio_36"></label>
                                         </div>
                                     </td>
                                     <td class="text-center">
                                         <div class="radio">
-                                            @if ($ambitof->responsabilidades == 'Bueno')
-                                                <input id="radio_37" name="responsabilidades" type="radio" checked>
+                                            @if ($ambitofamiliar->responsabilidades == 'Bueno')
+                                                <input id="radio_37" name="responsabilidades" type="radio" checked value="{{$ambitofamiliar->responsabilidades}}">
                                             @else
-                                                <input id="radio_37" name="responsabilidades" type="radio">
+                                                <input id="radio_37" name="responsabilidades" type="radio" value="Bueno">
                                             @endif
                                             <label for="radio_37"></label>
                                         </div>
                                     </td>
                                     <td class="text-center">
                                         <div class="radio">
-                                            @if ($ambitof->responsabilidades == 'Normal')
-                                                <input id="radio_38" name="responsabilidades" type="radio" checked>
+                                            @if ($ambitofamiliar->responsabilidades == 'Normal')
+                                                <input id="radio_38" name="responsabilidades" type="radio" checked value="{{$ambitofamiliar->responsabilidades}}">
                                             @else
-                                                <input id="radio_38" name="responsabilidades" type="radio" disabled>
+                                                <input id="radio_38" name="responsabilidades" type="radio" value="Normal">
                                             @endif
                                             <label for="radio_38"></label>
                                         </div>
                                     </td>
                                     <td class="text-center">
                                         <div class="radio">
-                                            @if ($ambitof->responsabilidades == 'Regular')
-                                                <input id="radio_39" name="responsabilidades" type="radio" checked>
+                                            @if ($ambitofamiliar->responsabilidades == 'Regular')
+                                                <input id="radio_39" name="responsabilidades" type="radio" checked value="{{$ambitofamiliar->responsabilidades}}">
                                             @else
-                                                <input id="radio_39" name="responsabilidades" type="radio" disabled>
+                                                <input id="radio_39" name="responsabilidades" type="radio" value="Regular">
                                             @endif
                                             <label for="radio_39"></label>
                                         </div>
                                     </td>
                                     <td class="text-center">
                                         <div class="radio">
-                                            @if ($ambitof->responsabilidades == 'Malo')
-                                                <input id="radio_40" name="responsabilidades" type="radio" checked>
+                                            @if ($ambitofamiliar->responsabilidades == 'Malo')
+                                                <input id="radio_40" name="responsabilidades" type="radio" checked value="{{$ambitofamiliar->responsabilidades}}">
                                             @else
-                                                <input id="radio_40" name="responsabilidades" type="radio" disabled>
+                                                <input id="radio_40" name="responsabilidades" type="radio" value="Malo">
                                             @endif
                                             <label for="radio_40"></label>
                                         </div>
@@ -194,50 +194,50 @@
                                     <td>Con relación a las normas de convivencia establecidas</td>
                                     <td class="text-center">
                                         <div class="radio">
-                                            @if ($ambitof->normas == 'Excelente')
-                                                <input id="radio_41" name="normas" type="radio" checked>
+                                            @if ($ambitofamiliar->normas == 'Excelente')
+                                                <input id="radio_41" name="normas" type="radio" checked value="{{$ambitofamiliar->normas}}">
                                             @else
-                                                <input id="radio_41" name="normas" type="radio" disabled>
+                                                <input id="radio_41" name="normas" type="radio" value="Excelente">
                                             @endif
                                             <label for="radio_41"></label>
                                         </div>
                                     </td>
                                     <td class="text-center">
                                         <div class="radio">
-                                            @if ($ambitof->normas == 'Bueno')
-                                                <input id="radio_42" name="normas" type="radio" checked>
+                                            @if ($ambitofamiliar->normas == 'Bueno')
+                                                <input id="radio_42" name="normas" type="radio" checked value="{{$ambitofamiliar->normas}}">
                                             @else
-                                                <input id="radio_42" name="normas" type="radio" disabled>
+                                                <input id="radio_42" name="normas" type="radio" value="Bueno">
                                             @endif
                                             <label for="radio_42"></label>
                                         </div>
                                     </td>
                                     <td class="text-center">
                                         <div class="radio">
-                                            @if ($ambitof->normas == 'Normal')
-                                                <input id="radio_43" name="normas" type="radio" checked>
+                                            @if ($ambitofamiliar->normas == 'Normal')
+                                                <input id="radio_43" name="normas" type="radio" checked value="{{$ambitofamiliar->normas}}">
                                             @else
-                                                <input id="radio_43" name="normas" type="radio" disabled>
+                                                <input id="radio_43" name="normas" type="radio" value="Normal">
                                             @endif
                                             <label for="radio_43"></label>
                                         </div>
                                     </td>
                                     <td class="text-center">
                                         <div class="radio">
-                                            @if ($ambitof->normas == 'Regular')
-                                                <input id="radio_44" name="normas" type="radio" checked>
+                                            @if ($ambitofamiliar->normas == 'Regular')
+                                                <input id="radio_44" name="normas" type="radio" checked value="{{$ambitofamiliar->normas}}">
                                             @else
-                                                <input id="radio_44" name="normas" type="radio" disabled>
+                                                <input id="radio_44" name="normas" type="radio" value="Regular">
                                             @endif
                                             <label for="radio_44"></label>
                                         </div>
                                     </td>
                                     <td class="text-center">
                                         <div class="radio">
-                                            @if ($ambitof->normas == 'Malo')
-                                                <input id="radio_45" name="normas" type="radio" checked>
+                                            @if ($ambitofamiliar->normas == 'Malo')
+                                                <input id="radio_45" name="normas" type="radio" checked value="{{$ambitofamiliar->normas}}">
                                             @else
-                                                <input id="radio_45" name="normas" type="radio" disabled>
+                                                <input id="radio_45" name="normas" type="radio" value="Malo">
                                             @endif
                                             <label for="radio_45"></label>
                                         </div>
@@ -247,7 +247,7 @@
                     </table>
                 </div>
 
-                <fieldset class="form-group col-12">
+                <fieldset class="form-group col-12 py-2">
                     <button type="submit" class="btn btn-success">Actualizar</button>
                     <a href="{{ route('expediente.index', [$ciclo, $nivel, $grupo, $alumno]) }}" class="btn btn-danger">
                         <span class="ladda-label">Cancelar</span>

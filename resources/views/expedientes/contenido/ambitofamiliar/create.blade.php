@@ -14,9 +14,8 @@
 <section class="card">
     <div class="card-block">
         <div class="row">
-            <form action="{{route('ambitofamiliar.update' , [$ciclo, $nivel, $grupo, $alumno])}}" method="POST">
+            <form action="{{route('ambitofamiliar.create' , [$ciclo, $nivel, $grupo, $alumno])}}" method="POST">
                 @csrf
-                @method('put')
 
                 <div class="col-12 table-responsive">
                     <table class="table">
@@ -167,7 +166,7 @@
                     </table>
                 </div>
 
-                <fieldset class="form-group col-12">
+                <fieldset class="form-group col-12 py-2">
                     <button type="submit" class="btn btn-success">Guardar</button>
                     <a href="{{ route('expediente.index', [$ciclo, $nivel, $grupo, $alumno]) }}" class="btn btn-danger">
                         <span class="ladda-label">Cancelar</span>

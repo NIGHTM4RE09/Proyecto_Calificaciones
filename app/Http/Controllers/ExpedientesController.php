@@ -217,13 +217,13 @@ class ExpedientesController extends Controller
 
     public function afedit($ciclo, $nivel, $grupo, $alumno, $ambitof)
     {
-        $ambitofamiiar = Familia::findOrFail($ambitof); 
+        $ambitofamiliar = Familia::findOrFail($ambitof); 
         $ciclo = Ciclo::findOrFail($ciclo);
         $nivel = Nivel::findOrFail($nivel);
         $grupo = Grupo::findOrFail($grupo);
         $alumno = Alumno::findOrFail($alumno);
 
-        return view('expedientes.contenido.ambitofamiliar.edit', compact('ciclo', 'nivel', 'grupo', 'alumno', 'ambitof'));
+        return view('expedientes.contenido.ambitofamiliar.edit', compact('ciclo', 'nivel', 'grupo', 'alumno', 'ambitofamiliar'));
     }
 
     public function afupdate(Request $request, $ciclo, $nivel, $grupo, $alumno, $ambitof)

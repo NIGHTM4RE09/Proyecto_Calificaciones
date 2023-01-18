@@ -928,7 +928,7 @@
                                             @if ($item->responsabilidades == 'Bueno')
                                                 <input id="radio_37" name="responsabilidades" type="radio" checked>
                                             @else
-                                                <input id="radio_37" name="responsabilidades" type="radio">
+                                                <input id="radio_37" name="responsabilidades" type="radio" disabled>
                                             @endif
                                             <label for="radio_37"></label>
                                         </div>
@@ -1031,7 +1031,7 @@
                                     Editar ámbito familiar
                                 </span>
                             </a>
-                            <form action="{{-- {{ route('contactos.destroy', ) }} --}}" method="POST">
+                            <form action="{{ route('ambitofamiliar.destroy', [$ciclo, $nivel, $grupo, $alumno, $item]) }}" method="POST">
                                 @csrf
                                 @method('delete')
                                 <button title="eliminar" type="submit" class="btn btn-inline btn-danger ladda-button"
