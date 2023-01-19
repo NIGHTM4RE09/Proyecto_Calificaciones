@@ -57,13 +57,13 @@
                             ¿Vive en casa?
                         </label>
                         <div class="radio">
+
                             <input id="signup_v2-vive-si" name="vive_casa" data-validation="[NOTEMPTY]"
                                 data-validation-group="signup_v2-vive"
                                 data-validation-message="Debes de seleccionar SI o NO" type="radio"
                                 value="1">
                             <label for="signup_v2-vive-si">Si</label>
-                        </div>
-                        <div class="radio">
+
                             <input id="signup_v2-vive-no" name="vive_casa"
                                 data-validation-group="signup_v2-vive" type="radio" value="0">
                             <label for="signup_v2-vive-no">No</label>

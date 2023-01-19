@@ -787,12 +787,10 @@ class ExpedientesController extends Controller
 
         $padre = Padre::findOrFail($padre);
 
-        return $padre;
-
         $padre->update($request->all());
 
-/*         return redirect()->route('expediente.index', [$ciclo, $nivel, $grupo, $alumno]);
- */
+        return redirect()->route('expediente.index', [$ciclo, $nivel, $grupo, $alumno]);
+
     }
 
     public function pdestroy($ciclo,  $nivel, $grupo, $alumno, $padre)

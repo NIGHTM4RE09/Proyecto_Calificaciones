@@ -255,56 +255,74 @@
                         <textarea name="actividades" rows="4" class="form-control">{{$areas->actividades}}</textarea>
                     </fieldset>
                 </div>
-
-                <div class="form-group form-group-radios col-12 col-md-3 col-lg-3">
-                    <label class="form-label" id="signup_v2-teatro">
-                        ¿Cuenta con algún tipo de beca?
-                    </label>
                     @switch($areas->beca)
                         @case(1)
-                        <div class="radio">
-                            <input id="radio_12" name="beca" onchange="javascript:showContent()" type="radio"
-                                value="1" checked>
-                            <label for="radio_12">Si</label>
+                        <div class="form-group form-group-radios col-12 col-md-3 col-lg-3">
+                            <label class="form-label" id="signup_v2-teatro">
+                                ¿Cuenta con algún tipo de beca?
+                            </label>
+                            <div class="radio">
+                                <input id="radio_12" name="beca" onchange="javascript:showContent()" type="radio"
+                                    value="1" checked>
+                                <label for="radio_12">Si</label>
+                            </div>
+                            <div class="radio">
+                                <input id="radio_13" name="beca" onchange="javascript:showContent()" type="radio"
+                                    value="0">
+                                <label for="radio_13">No</label>
+                            </div>
                         </div>
-                        <div class="radio">
-                            <input id="radio_13" name="beca" onchange="javascript:showContent()" type="radio"
-                                value="0">
-                            <label for="radio_13">No</label>
+                        <div id="contenido">
+                            <div class="col-12 col-md-6 col-lg-6">
+                                <fieldset class="form-group">
+                                    <label class="form-label">Especifique que tipo de beca tiene</label>
+                                    <textarea name="tipo_beca" rows="4" class="form-control">{{$areas->tipo_beca}}</textarea>
+                                </fieldset>
+                            </div>
+        
+                            <div class="col-12 col-md-6 col-lg-6">
+                                <fieldset class="form-group">
+                                    <label class="form-label">¿En qué es utilizado el recurso de la beca?</label>
+                                    <textarea name="recurso_beca" rows="4" class="form-control">{{$areas->recurso_beca}}</textarea>
+                                </fieldset>
+                            </div>
                         </div>
                             @break
                         @case(0)
-                        <div class="radio">
-                            <input id="radio_12" name="beca" onchange="javascript:showContent()" type="radio"
-                                value="1">
-                            <label for="radio_12">Si</label>
+                        <div class="form-group form-group-radios col-12 col-md-3 col-lg-3">
+                            <label class="form-label" id="signup_v2-teatro">
+                                ¿Cuenta con algún tipo de beca?
+                            </label>
+                            <div class="radio">
+                                <input id="radio_12" name="beca" onchange="javascript:showContent()" type="radio"
+                                    value="1">
+                                <label for="radio_12">Si</label>
+                            </div>
+                            <div class="radio">
+                                <input id="radio_13" name="beca" onchange="javascript:showContent()" type="radio"
+                                    value="0" checked>
+                                <label for="radio_13">No</label>
+                            </div>
                         </div>
-                        <div class="radio">
-                            <input id="radio_13" name="beca" onchange="javascript:showContent()" type="radio"
-                                value="0" checked>
-                            <label for="radio_13">No</label>
+                        <div id="contenido" style="display: none;">
+                            <div class="col-12 col-md-6 col-lg-6">
+                                <fieldset class="form-group">
+                                    <label class="form-label">Especifique que tipo de beca tiene</label>
+                                    <textarea name="tipo_beca" rows="4" class="form-control">{{$areas->tipo_beca}}</textarea>
+                                </fieldset>
+                            </div>
+        
+                            <div class="col-12 col-md-6 col-lg-6">
+                                <fieldset class="form-group">
+                                    <label class="form-label">¿En qué es utilizado el recurso de la beca?</label>
+                                    <textarea name="recurso_beca" rows="4" class="form-control">{{$areas->recurso_beca}}</textarea>
+                                </fieldset>
+                            </div>
                         </div>
                             @break
                         @default
                             
                     @endswitch
-                </div>
-
-                <div id="contenido" style="display: none;">
-                    <div class="col-12 col-md-6 col-lg-6">
-                        <fieldset class="form-group">
-                            <label class="form-label">Si su respuesta fue "si", especifique que tipo de beca tiene</label>
-                            <textarea name="tipo_beca" rows="4" class="form-control">{{$areas->tipo_beca}}</textarea>
-                        </fieldset>
-                    </div>
-
-                    <div class="col-12 col-md-6 col-lg-6">
-                        <fieldset class="form-group">
-                            <label class="form-label">¿En qué es utilizado el recurso de la beca?</label>
-                            <textarea name="recurso_beca" rows="4" class="form-control">{{$areas->recurso_beca}}</textarea>
-                        </fieldset>
-                    </div>
-                </div>
 
                 <div class="col-12 col-md-12 col-lg-12">
                     <fieldset class="form-group">
