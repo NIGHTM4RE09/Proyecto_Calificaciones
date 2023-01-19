@@ -15,39 +15,44 @@
 <section class="card">
     <div class="card-block">
         <div class="row">
-            <div class="col-md-12">
-                <form action="{{route('hijos.store', [$ciclo, $nivel, $grupo, $alumno])}}" method="POST">
+           <form action="{{route('hijos.store', [$ciclo, $nivel, $grupo, $alumno])}}" method="POST">
                     @csrf
 
-                    <fieldset class="form-group">
-                        <label class="form-label">Nombre completo</label>
-                        <input name="nombre" type="text"
-                            class="form-control" data-validation="[NOTEMPTY]"
-                            data-validation-message="Debes agregar un nombre">
-                    </fieldset>
+                    <div class="col-12 col-md-4 col-lg-4">
+                        <fieldset class="form-group">
+                            <label class="form-label">Nombre completo</label>
+                            <input name="nombre" type="text"
+                                class="form-control" data-validation="[NOTEMPTY]"
+                                data-validation-message="Debes agregar un nombre">
+                        </fieldset>
+                    </div>
 
-                    <fieldset class="form-group">
-                        <label class="form-label">Edad</label>
-                        <input name="edad" type="number"
-                            class="form-control" data-validation="[NOTEMPTY]"
-                            data-validation-message="Debes agregar una edad">
-                    </fieldset>
+                    <div class="col-12 col-md-2 col-lg-2">
+                        <fieldset class="form-group">
+                            <label class="form-label">Edad</label>
+                            <input name="edad" type="number"
+                                class="form-control" data-validation="[NOTEMPTY]"
+                                data-validation-message="Debes agregar una edad">
+                        </fieldset>
+                    </div>
 
-                    <fieldset class="form-group">
-                        <label class="form-label">Nivel de estudios</label>
-                        <select name="estudios" id="select" class="form-control"
-                            data-validation="[NOTEMPTY]" data-validation-message="Este campo no debe ir vacio">
-                            <option value="">No ha seleccionado ningún nivel de estudio</option>
-                            <option value="Primaria">Primaria</option>
-                            <option value="Secundaria">Secundaria</option>
-                            <option value="Preparatoria">Preparatoria</option>
-                            <option value="Licenciatura">Licenciatura</option>
-                            <option value="Maestria/Posgrado">Maestria/Posgrado</option>
-                            <option value="Ninguno">Ninguno</option>
-                        </select>
-                    </fieldset>
+                    <div class="col-12 col-md-4 col-lg-4">
+                        <fieldset class="form-group">
+                            <label class="form-label">Nivel de estudios</label>
+                            <select name="estudios" id="select" class="form-control"
+                                data-validation="[NOTEMPTY]" data-validation-message="Este campo no debe ir vacio">
+                                <option value="">No ha seleccionado ningún nivel de estudio</option>
+                                <option value="Primaria">Primaria</option>
+                                <option value="Secundaria">Secundaria</option>
+                                <option value="Preparatoria">Preparatoria</option>
+                                <option value="Licenciatura">Licenciatura</option>
+                                <option value="Maestria/Posgrado">Maestria/Posgrado</option>
+                                <option value="Ninguno">Ninguno</option>
+                            </select>
+                        </fieldset>
+                    </div>
 
-                    <div class="form-group form-group-radios">
+                    <div class="form-group form-group-radios col-12 col-md-2 col-lg-2">
                         <label class="form-label" id="signup_v2-vive">
                             ¿Vive en casa?
                         </label>
@@ -65,14 +70,15 @@
                         </div>
                     </div>
 
-                    <fieldset class="form-group">
-                        <button type="submit" class="btn btn-success">Agregar</button>
-                        <a href="{{ route('expediente.index', [$ciclo, $nivel, $grupo, $alumno]) }}" class="btn btn-danger">
-                            <span class="ladda-label">Cancelar</span>
-                        </a>
-                    </fieldset>
+                    <div class="col-12 col-md-12 col-lg-12">
+                        <fieldset class="form-group">
+                            <button type="submit" class="btn btn-success">Agregar</button>
+                            <a href="{{ route('expediente.index', [$ciclo, $nivel, $grupo, $alumno]) }}" class="btn btn-danger">
+                                <span class="ladda-label">Cancelar</span>
+                            </a>
+                        </fieldset>
+                    </div>
                 </form>
-            </div>
         </div>
     </div>
 </section>

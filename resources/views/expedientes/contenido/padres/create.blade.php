@@ -17,7 +17,7 @@
                 <form action="{{route('padres.store', [$ciclo, $nivel, $grupo, $alumno])}}" method="post">
                     @csrf
 
-                    <fieldset class="form-group col-12 col-md-6 col-lg-6">
+                    <fieldset class="form-group col-12 col-md-4 col-lg-4">
                         <label for="select" class="form-label">Seleccione si es el padre o la madre</label>
                         <select name="parentesco" id="select" class="form-control" data-validation="[NOTEMPTY]"
                             data-validation-message="Este campo no debe ir vacio">
@@ -27,17 +27,14 @@
                         </select>
                     </fieldset>
 
-                    <fieldset class="form-group col-12 col-md-6 col-lg-6">
+                    <fieldset class="form-group col-12 col-md-4 col-lg-4">
                         <label class="form-label">Nombre Completo del padre o de la madre</label>
                         <input name="nombre" type="text" class="form-control" data-validation="[NOTEMPTY]"
                             data-validation-message="Debes agregar un nombre">
                     </fieldset>
 
-                    <fieldset class="form-group col-12 col-md-2 col-lg-2">
+                    <div class="form-group form-group-radios col-12 col-md-2 col-lg-2">
                         <label class="form-label" id="signup_v2-vive">Vive:</label>
-                    </fieldset>
-
-                    <fieldset class="form-group col-12 col-md-2 col-lg-2">
                         <div class="radio">
                             <input id="radio_1" name="vive" onchange="javascript:showContent()" type="radio"
                                 value="1">
@@ -46,7 +43,7 @@
                                 value="0">
                             <label for="radio_2">No</label>
                         </div>
-                    </fieldset>
+                    </div>
 
                     <div id="contenido" style="display: none;">
                         <fieldset class="form-group col-12 col-md-2 col-lg-2">

@@ -151,13 +151,13 @@ class ExpedientesController extends Controller
 
     public function aeedit($ciclo, $nivel, $grupo, $alumno, $ambito)
     {
-        $hambito = School::findOrFail($ambito); 
+        $ambitoescolar = School::findOrFail($ambito); 
         $ciclo = Ciclo::findOrFail($ciclo);
         $nivel = Nivel::findOrFail($nivel);
         $grupo = Grupo::findOrFail($grupo);
         $alumno = Alumno::findOrFail($alumno);
 
-        return view('expedientes.contenido.ambitoescolar.edit', compact('ciclo', 'nivel', 'grupo', 'alumno', 'hambito'));
+        return view('expedientes.contenido.ambitoescolar.edit', compact('ciclo', 'nivel', 'grupo', 'alumno', 'ambitoescolar'));
     }
 
     public function aeupdate(Request $request, $ciclo, $nivel, $grupo, $alumno, $ambito)
@@ -182,7 +182,7 @@ class ExpedientesController extends Controller
         $grupo = Grupo::findOrFail($grupo);
         $alumno = Alumno::findOrFail($alumno);
 
-        $hambitos = School::find($ambito)->delete();
+        $ambitos = School::find($ambito)->delete();
     
         return redirect()->back();
     }
@@ -290,6 +290,44 @@ class ExpedientesController extends Controller
         return redirect()->route('expediente.index', [$ciclo, $nivel, $grupo, $alumno]);
     }
 
+    public function aedit($ciclo, $nivel, $grupo, $alumno, $area)
+    {
+        $areas = Area::findOrFail($area); 
+        $ciclo = Ciclo::findOrFail($ciclo);
+        $nivel = Nivel::findOrFail($nivel);
+        $grupo = Grupo::findOrFail($grupo);
+        $alumno = Alumno::findOrFail($alumno);
+
+        return view('expedientes.contenido.areasocioeconomica.edit', compact('ciclo', 'nivel', 'grupo', 'alumno', 'areas'));
+    }
+
+    public function aupdate(Request $request, $ciclo, $nivel, $grupo, $alumno, $area)
+    {
+        $ciclo = Ciclo::findOrFail($ciclo);
+        $nivel = Nivel::findOrFail($nivel);
+        $grupo = Grupo::findOrFail($grupo);
+        $alumno = Alumno::findOrFail($alumno);
+
+        $areas = Area::findOrFail($area); 
+
+        $areas->update($request->all());
+
+        return redirect()->route('expediente.index', [$ciclo, $nivel, $grupo, $alumno]);
+    }
+
+    public function adestroy($ciclo, $nivel, $grupo, $alumno, $area)
+    {
+
+        $ciclo = Ciclo::findOrFail($ciclo);
+        $nivel = Nivel::findOrFail($nivel);
+        $grupo = Grupo::findOrFail($grupo);
+        $alumno = Alumno::findOrFail($alumno);
+
+        $areas = Area::find($area)->delete();
+    
+        return redirect()->back();
+    }
+
     //Funciones de los contactos del alumno
 
     public function contacto($ciclo, $nivel, $grupo, $alumno)
@@ -316,6 +354,44 @@ class ExpedientesController extends Controller
         $alumno->contactos()->attach($contacto->id);
 
         return redirect()->route('expediente.index', [$ciclo, $nivel, $grupo, $alumno]);
+    }
+
+    public function cedit($ciclo, $nivel, $grupo, $alumno, $contacto)
+    {
+        $contactos = Contacto::findOrFail($contacto); 
+        $ciclo = Ciclo::findOrFail($ciclo);
+        $nivel = Nivel::findOrFail($nivel);
+        $grupo = Grupo::findOrFail($grupo);
+        $alumno = Alumno::findOrFail($alumno);
+
+        return view('expedientes.contenido.contactos.edit', compact('ciclo', 'nivel', 'grupo', 'alumno', 'contactos'));
+    }
+
+    public function cupdate(Request $request, $ciclo, $nivel, $grupo, $alumno, $contacto)
+    {
+        $ciclo = Ciclo::findOrFail($ciclo);
+        $nivel = Nivel::findOrFail($nivel);
+        $grupo = Grupo::findOrFail($grupo);
+        $alumno = Alumno::findOrFail($alumno);
+
+        $contactos = Contacto::findOrFail($contacto); 
+
+        $contactos->update($request->all());
+
+        return redirect()->route('expediente.index', [$ciclo, $nivel, $grupo, $alumno]);
+    }
+
+    public function cdestroy($ciclo, $nivel, $grupo, $alumno, $contacto)
+    {
+
+        $ciclo = Ciclo::findOrFail($ciclo);
+        $nivel = Nivel::findOrFail($nivel);
+        $grupo = Grupo::findOrFail($grupo);
+        $alumno = Alumno::findOrFail($alumno);
+
+        $contactos = Contacto::find($contacto)->delete();
+    
+        return redirect()->back();
     }
 
     //Funciones de los datos de los alumnos
@@ -709,12 +785,14 @@ class ExpedientesController extends Controller
         $grupo = Grupo::findOrFail($grupo);
         $alumno = Alumno::findOrFail($alumno);
 
-        $padre = Padre::findOrFail($padre); 
+        $padre = Padre::findOrFail($padre);
+
+        return $padre;
 
         $padre->update($request->all());
 
-        return redirect()->route('expediente.index', [$ciclo, $nivel, $grupo, $alumno]);
-
+/*         return redirect()->route('expediente.index', [$ciclo, $nivel, $grupo, $alumno]);
+ */
     }
 
     public function pdestroy($ciclo,  $nivel, $grupo, $alumno, $padre)

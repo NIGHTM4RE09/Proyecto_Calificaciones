@@ -22,11 +22,11 @@
                                 <thead>
                                     <tr>
                                         <th></th>
-                                        <th>Excelente</th>
-                                        <th>Bueno</th>
-                                        <th>Normal</th>
-                                        <th>Regular</th>
-                                        <th>Malo</th>
+                                        <th scope="col">Excelente</th>
+                                        <th scope="col">Bueno</th>
+                                        <th scope="col">Normal</th>
+                                        <th scope="col">Regular</th>
+                                        <th scope="col">Malo</th>
                                     </tr>
                                 </thead>
                                 <tbody>

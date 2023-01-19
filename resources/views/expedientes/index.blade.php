@@ -650,7 +650,7 @@
                                     <td>Con relación a las normas de convivencia de la clase</td>
                                     <td class="text-center">
                                         <div class="radio">
-                                            @if ($item->convivenvia == 'Excelente')
+                                            @if ($item->convivencia == 'Excelente')
                                                 <input id="radio_16" name="convivencia" type="radio" checked>
                                             @else
                                                 <input id="radio_16" name="convivencia" type="radio" disabled>
@@ -1153,13 +1153,13 @@
                 <div class="col-12 text-center py-2">
                     <div class="form-group">
                         @foreach ($area as $item)
-                            <a href="{{-- {{route('contacto.edit')}} --}}" class="btn btn-inline btn-info ladda-button" data-size="s">
+                            <a href="{{route('area.edit', [$ciclo, $nivel, $grupo, $alumno, $item])}}" class="btn btn-inline btn-info ladda-button" data-size="s">
                                 <span class="ladda-label">
                                     <i class="fa fa-edit"></i>
                                     Editar area socioeconómica
                                 </span>
                             </a>
-                            <form action="{{-- {{ route('contactos.destroy', ) }} --}}" method="POST">
+                            <form action="{{ route('area.destroy', [$ciclo, $nivel, $grupo, $alumno, $item]) }}" method="POST">
                                 @csrf
                                 @method('delete')
                                 <button title="eliminar" type="submit" class="btn btn-inline btn-danger ladda-button"
@@ -1205,13 +1205,13 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a title="editar" href="{{-- {{ route('contactos.show') }} --}}"
+                                        <a title="editar" href="{{ route('contacto.edit', [$ciclo, $nivel, $grupo, $alumno, $item]) }}"
                                             class="btn btn-inline btn-info btn-sm ladda-button" data-size="s">
                                             <span class="ladda-label">
                                                 <i class="fa fa-edit"></i>
                                             </span>
                                         </a>
-                                        <form action="{{-- {{ route('contactos.destroy', ) }} --}}" method="POST">
+                                        <form action="{{ route('contacto.destroy', [$ciclo, $nivel, $grupo, $alumno, $item]) }}" method="POST">
                                             @csrf
                                             @method('delete')
                                             <button title="eliminar" type="submit"

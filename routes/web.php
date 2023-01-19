@@ -126,11 +126,13 @@ Route::middleware(['auth'])->group(function () {
             Route::post('agregar/area-socioeconomica', [ExpedientesController::class, 'acreate'])->middleware('can:Expediente Alumno')->name('area.store');
             Route::get('editar/area-socioeconomica/{area}', [ExpedientesController::class, 'aedit'])->middleware('can:Expediente Alumno')->name('area.edit');
             Route::put('editar/area-socioeconomica/{area}', [ExpedientesController::class, 'aupdate'])->middleware('can:Expediente Alumno')->name('area.update');
+            Route::delete('eliminar/area-socioeconomica/{area}', [ExpedientesController::class, 'adestroy'])->middleware('can:Expediente Alumno')->name('area.destroy');
             
             Route::get('agregar/contacto', [ExpedientesController::class, 'contacto'])->middleware('can:Expediente Alumno')->name('contacto.create');
             Route::post('agregar/contacto', [ExpedientesController::class, 'ccreate'])->middleware('can:Expediente Alumno')->name('contacto.store');
             Route::get('editar/contacto/{contacto}', [ExpedientesController::class, 'cedit'])->middleware('can:Expediente Alumno')->name('contacto.edit');
             Route::put('editar/contacto/{contacto}', [ExpedientesController::class, 'cupdate'])->middleware('can:Expediente Alumno')->name('contacto.update');
+            Route::delete('eliminar/contacto/{contacto}', [ExpedientesController::class, 'cdestroy'])->middleware('can:Expediente Alumno')->name('contacto.destroy');
             
             Route::get('crear/datos-alumno', [ExpedientesController::class, 'datosalumno'])->middleware('can:Expediente Alumno')->name('datos.create');
             Route::post('crear/datos-alumno', [ExpedientesController::class, 'dcreate'])->middleware('can:Expediente Alumno')->name('datos.store');
