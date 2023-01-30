@@ -70,9 +70,7 @@
     <link rel="stylesheet" href="{{ asset('css/separate/vendor/context_menu.min.css') }}">
 
     {{-- /buttons --}}
-
-    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="{{ asset('css/separate/pages/user.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/separate/vendor/bootstrap-touchspin.min.css') }}">

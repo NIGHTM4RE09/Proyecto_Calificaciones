@@ -26,25 +26,16 @@
             <table id="example" class="display table table-striped table-bordered" cellspacing="0" width="100%">
                 <thead>
                     <tr>
-                        <th>Mes</th>
-                        <th>Español</th>
-                        <th>Matematicas</th>
-                        <th>Historia</th>
+                        <th>Materia/Mes</th>
+                        <th>Septiembre</th>
+                        <th>Octubre</th>
+                        <th>Noviembre</th>
                         <th>Promedio General</th>
                     </tr>
                 </thead>
-                <tfoot>
-                    <tr>
-                        <th>Mes</th>
-                        <th>Español</th>
-                        <th>Matematicas</th>
-                        <th>Historia</th>
-                        <th>Promedio General</th>
-                    </tr>
-                </tfoot>
                 <tbody>
                     <tr>
-                        <th><input type="text" name="mes" id="" class="form-control"></th>
+                        <th>Ingles</th>
                         <td><input type="number" name="calificacion" id="" class="form-control"></td>
                         <td><input type="number" name="calificacion" id="" class="form-control"></td>
                         <td><input type="number" name="calificacion" id="" class="form-control"></td>

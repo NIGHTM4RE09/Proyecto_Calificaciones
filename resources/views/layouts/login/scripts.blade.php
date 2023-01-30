@@ -1,24 +1,5 @@
-<script src="{{ asset('js/lib/jquery/jquery.min.js') }}"></script>
-<script src="{{ asset('js/lib/tether/tether.min.js') }}"></script>
-<script src="{{ asset('js/lib/bootstrap/bootstrap.min.js') }}"></script>
-<script src="{{ asset('js/plugins.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/lib/match-height/jquery.matchHeight.min.js') }}"></script>
-<script>
-    $(function() {
-        $('.page-center').matchHeight({
-            target: $('html')
-        });
-
-        $(window).resize(function() {
-            setTimeout(function() {
-                $('.page-center').matchHeight({
-                    remove: true
-                });
-                $('.page-center').matchHeight({
-                    target: $('html')
-                });
-            }, 100);
-        });
-    });
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
 </script>
-<script src="{{ asset('js/app.js') }}"></script>
+
+<script src="https://kit.fontawesome.com/ac47638dc5.js" crossorigin="anonymous"></script>

@@ -68,10 +68,7 @@
                             <tr>
                                 <td>{{ $item->nombre }}</td>
                                 <td>
-                                    <form action="{{ route('alumnos.destroy', $item) }}" method="POST">
-                                        @csrf
-                                        @method('delete')
-                                        <a title="calificaciones" href="{{ route('ups') }}{{-- {{ route('calificaciones.index', [$ciclo, $nivel, $grupo, $item]) }} --}}"
+                                        <a title="calificaciones" href="{{ route('calificaciones.index', [$ciclo, $nivel, $grupo, $item]) }}"
                                             class="btn btn-inline btn-sm btn-primary text-center">
                                             <span class="ladda-label">
                                                 <i class="fa fa-calendar-check-o"></i>
@@ -95,14 +92,17 @@
                                             </a>
                                         @endcan
                                         @can('Eliminar Alumno')
+                                        <form action="{{ route('alumnos.destroy', $item) }}" method="POST">
+                                            @csrf
+                                            @method('delete')
                                             <button title="eliminar" type="submit"
                                                 class="btn btn-inline btn-danger btn-sm ladda-button" data-size="s">
                                                 <span class="ladda-label">
                                                     <i class="fa fa-trash"></i>
                                                 </span>
                                             </button>
+                                            </form>
                                         @endcan
-                                    </form>
                                 </td>
                             </tr>
                         @endforeach

@@ -2,7 +2,7 @@
 <nav class="side-menu">
     <div class="side-menu-avatar">
         <div class="avatar-preview avatar-preview-100">
-            <img src="{{ asset('img/carp.png') }}" alt="">
+            <img class="img-thumbnail" src="{{ asset('img/carp.png') }}" alt="">
         </div>
     </div>
     <ul class="side-menu-list">

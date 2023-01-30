@@ -3,7 +3,7 @@
 
 @include('layouts.head')
 
-<body class="with-side-menu dark-theme">
+<body class="with-side-menu theme-rebecca-purple">
 
     @include('layouts.encabezado')
 
