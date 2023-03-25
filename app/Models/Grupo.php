@@ -26,6 +26,11 @@ class Grupo extends Model
         return $this->belongsToMany('App\Models\Alumno');
     }
 
+    //Relación uno a muchos
+    public function materias() {
+        return $this->belongsToMany('App\Models\Materia');
+    }
+
     //Relacion uno a uno(inverso)
     public function user()
     {

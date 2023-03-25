@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Alumno;
 use App\Models\Ciclo;
 use App\Models\Grupo;
+use App\Models\Materia;
 use App\Models\Nivel;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -70,17 +71,6 @@ class AlumnosController extends Controller
      * @param  \App\Models\Alumno  $alumno
      * @return \Illuminate\Http\Response
      */
-    public function show(Alumno $alumno)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Alumno  $alumno
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Alumno $alumno)
     {
         return view('alumnos.edit', compact('alumno'));
@@ -95,7 +85,9 @@ class AlumnosController extends Controller
      */
     public function update(Request $request, Alumno $alumno)
     {
-        //
+        $alumno->update($request->all());
+
+        return redirect()->route('alumnos.index');
     }
 
     /**
@@ -133,5 +125,35 @@ class AlumnosController extends Controller
         $user->grupo()->save($grupo);
 
         return redirect()->route('alumnos.index', [$ciclo, $nivel, $grupo]);
+    }
+
+    public function materias($ciclo, $nivel, $grupo)
+    {
+        $ciclo = Ciclo::find($ciclo);
+        $nivel = Nivel::find($nivel);
+        $materias = Materia::all()->where('group_id', $grupo);
+        $grupo = Grupo::find($grupo);
+
+        return view('grupos.materias', compact('nivel', 'grupo', 'ciclo', 'materias'));
+    }
+
+    public function asignarm(Request $request, $ciclo,  $nivel, $grupo)
+    {
+        $ciclo = Ciclo::findOrFail($ciclo);
+        $nivel = Nivel::findOrFail($nivel);
+        $grupo = Grupo::findOrFail($grupo);
+        $materia = Materia::create([
+            'materia' => $request['materia'],
+            'group_id' => $grupo->id
+        ]);
+        
+        return redirect()->back();
+    }
+
+    public function destroym(Materia $materia)
+    {
+        $materia->delete();
+
+        return redirect()->back();
     }
 }

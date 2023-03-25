@@ -34,9 +34,9 @@ class ExpedientesController extends Controller
      */
     public function index($ciclo, $nivel, $grupo, $alumno)
     {
-        $ciclo = Ciclo::find($ciclo);
-        $nivel = Nivel::find($nivel);
-        $grupo = Grupo::find($grupo);
+        $ciclo = Ciclo::findOrFail($ciclo);
+        $nivel = Nivel::findOrFail($nivel);
+        $grupo = Grupo::findOrFail($grupo);
         $tutor = Tutor::all()->where('alumno_id', $alumno);
         $datos = Dato::all()->where('alumno_id', $alumno);
         $habito = Habito::all()->where('alumno_id',$alumno);
@@ -44,7 +44,7 @@ class ExpedientesController extends Controller
         $area = Area::all()->where('alumno_id', $alumno);
         $ambitoescolar = School::all()->where('alumno_id', $alumno);
         $ambitofamiliar = Familia::all()->where('alumno_id', $alumno);
-        $alumno = Alumno::find($alumno);
+        $alumno = Alumno::findOrFail($alumno);
         return view('expedientes.index', compact('ciclo', 'nivel', 'grupo', 'alumno', 'tutor', 'datos', 'habito', 'hobbies', 'area', 'ambitoescolar', 'ambitofamiliar'));
     }
 

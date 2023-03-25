@@ -30,16 +30,6 @@ class PlanningController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -47,19 +37,27 @@ class PlanningController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+        
+        $data = $request->all(); 
+        
         if ($request->file('planeacion')) {
-           $url = Storage::put('planeaciones', $request->file('planeacion'));
+
+            $file = $request->file('planeacion');
+
+            $nombre = "Planeacion_".$request->grado."_".$request->nivel_academico."_".$request->semana.".".$file->guessExtension();
+
+            $url = $file->storeAs('planeaciones', $nombre);
 
             $planeacion = Planning::create([
                 'nivel_academico' => $data['nivel_academico'],
                 'planeacion' => $url,
+                'grado' => $data['grado'],
                 'semana' => $data['semana'],
                 'user_id' => Auth::user()->id,
             ]);
             
         }
-        return redirect()->back();
+        return redirect()->route('planeaciones.index');
     }
 
     /**
@@ -68,33 +66,6 @@ class PlanningController extends Controller
      * @param  \App\Models\Planning  $planning
      * @return \Illuminate\Http\Response
      */
-    public function show(Planning $planning)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Planning  $planning
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Planning $planning)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Planning  $planning
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Planning $planning)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.

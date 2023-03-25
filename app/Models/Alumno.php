@@ -86,4 +86,14 @@ class Alumno extends Model
         return $this->belongsToMany('App\Models\Family');
     }
 
+    //Relación uno a muchos
+    public function notes() {
+        return $this->hasMany(Note::class);
+    }
+
+    public function averageScore()
+{
+    return $this->notes()->with('materia')->avg('note');
+}
+
 }

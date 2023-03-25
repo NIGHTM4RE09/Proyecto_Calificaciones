@@ -8,6 +8,7 @@ use App\Http\Controllers\ExpedientesController;
 use App\Http\Controllers\GruposController;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\InstallerController;
+use App\Http\Controllers\MesesController;
 use App\Http\Controllers\NivelController;
 use App\Http\Controllers\PlanningController;
 use App\Http\Controllers\RolesController;
@@ -60,9 +61,18 @@ Route::middleware(['auth'])->group(function () {
             'destroy' => 'alumnos.destroy'
         ])->shallow();
 
-        Route::get('ciclo-escolar/{ciclo_escolar}/nivel-academico/{nivel_academico}/grupos/{grupo}/alumno/asignar-asesor', [AlumnosController::class, 'asesor'])->middleware('can:Asesor')->name('asesor');
-        Route::post('ciclo-escolar/{ciclo_escolar}/nivel-academico/{nivel_academico}/grupos/{grupo}/alumno/asignar-asesor', [AlumnosController::class, 'asignar'])->middleware('can:Asesor')->name('asignar.asesor');
+        Route::prefix('ciclo-escolar/{ciclo_escolar}/nivel-academico/{nivel_academico}/grupos/{grupo}/alumnos/')->group(function () {
+
+            Route::get('asignar-asesor', [AlumnosController::class, 'asesor'])->middleware('can:Asesor')->name('asesor');
+            Route::post('asignar-asesor', [AlumnosController::class, 'asignar'])->middleware('can:Asesor')->name('asignar.asesor');
         
+            Route::get('asignar-materias', [AlumnosController::class, 'materias'])->name('materias');
+            Route::post('asignar-materias', [AlumnosController::class, 'asignarm'])->name('asignar.materias');
+        });
+
+        Route::delete('eliminar/{materia}', [AlumnosController::class, 'destroym'])->name('eliminar.materia');
+
+
         Route::resource('planeaciones', PlanningController::class)->parameters([
             'planeaciones' => 'planeacion'
         ])->middleware('can:Planeaciones');
@@ -83,13 +93,10 @@ Route::middleware(['auth'])->group(function () {
         Route::prefix('ciclo-escolar/{ciclo_escolar}/nivel-academico/{nivel_academico}/grupos/{grupo}/alumnos/{alumno}/')->group(function () {
             Route::resource('calificaciones', CalificacionesController::class)->parameters([
                 'calificaciones' => 'calificacion'
-            ])->middleware('can:Calificaciones');
-            //Redireccionamiento de la página mientras se desarrolla.
-        });
+            ])->shallow()->middleware('can:Calificaciones');
 
-        Route::get('uppss-la-pagina-no-esta-disponible', function () {
-            return view('inicio.ups');
-        })->name('ups');
+            Route::resource('mes', MesesController::class)->shallow()->middleware('can:Calificaciones');
+        });
         
         Route::resource('ciclo-escolar.nivel-academico.grupos', GruposController::class)->names([
             'index' => 'grupos.index',
@@ -178,6 +185,8 @@ Route::middleware(['auth'])->group(function () {
 Auth::routes(["register" => false]);
 
 Route::get('instalar', [InstallerController::class, 'instalador']);
+
+Route::get('meses', [MesesController::class, 'meses']);
 
 /* Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); */
 

@@ -123,7 +123,7 @@
 <script>
     $(function() {
         function cb(start, end) {
-            $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+            $('#reportrange span').html(start.format('D MMMM, YYYY') + ' - ' + end.format('D MMMM, YYYY'));
         }
         cb(moment().subtract(29, 'days'), moment());
 

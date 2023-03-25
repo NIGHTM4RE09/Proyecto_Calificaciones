@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Asignatura;
+use App\Http\Controllers\Controller;
+use App\Models\Alumno;
+use App\Models\Ciclo;
+use App\Models\Grupo;
+use App\Models\Month;
+use App\Models\Nivel;
 use Illuminate\Http\Request;
 
-class AsignaturaController extends Controller
+class MesesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,7 +29,7 @@ class AsignaturaController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -33,18 +38,25 @@ class AsignaturaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $ciclo, $nivel, $grupo, $alumno)
     {
-        //
+        $ciclo = Ciclo::findOrFail($ciclo);
+        $nivel = Nivel::findOrFail($nivel);
+        $grupo = Grupo::findOrFail($grupo);
+        $alumno = Alumno::findOrFail($alumno);
+
+        $meses = Month::create($request->all());
+
+        return redirect()->back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Asignatura  $asignatura
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Asignatura $asignatura)
+    public function show($id)
     {
         //
     }
@@ -52,10 +64,10 @@ class AsignaturaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Asignatura  $asignatura
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Asignatura $asignatura)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +76,10 @@ class AsignaturaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Asignatura  $asignatura
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Asignatura $asignatura)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +87,10 @@ class AsignaturaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Asignatura  $asignatura
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Asignatura $asignatura)
+    public function destroy($id)
     {
         //
     }

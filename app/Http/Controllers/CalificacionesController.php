@@ -6,7 +6,10 @@ use App\Models\Alumno;
 use App\Models\Ciclo;
 use App\Models\Grade;
 use App\Models\Grupo;
+use App\Models\Materia;
+use App\Models\Month;
 use App\Models\Nivel;
+use App\Models\Note;
 use Illuminate\Http\Request;
 
 class CalificacionesController extends Controller
@@ -22,13 +25,24 @@ class CalificacionesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($nivel, $grupo, $alumno, $ciclo)
+    public function index($nivel, $grupo, $ciclo, $alumno)
     {
-        $ciclo = Ciclo::find($ciclo);
-        $nivel = Nivel::find($nivel);
-        $grupo = Grupo::find($grupo);
-        $alumno = Alumno::find($alumno);
-        return view('calificaciones.index', compact('nivel', 'grupo', 'alumno', 'ciclo'));
+        $ciclo = Ciclo::findOrFail($ciclo);
+        $nivel = Nivel::findOrFail($nivel);
+        $materia = Materia::all()->where('group_id', $grupo);
+        $grupo = Grupo::findOrFail($grupo);
+        $meses = Month::all();
+        $alumno = Alumno::findOrFail($alumno);
+
+        $promedio = collect();
+        
+        foreach ($materia as $item) {
+            $notas = $alumno->notes()->where('materia_id', $item->id)->orderBy('month_id', 'asc')->get();
+            $avg = $notas->avg('note');
+            $promedio->push(['materia' => $item, 'note' => $notas, 'avg' => $avg]);
+        }
+        
+        return view('calificaciones.index', compact('nivel', 'grupo', 'alumno', 'ciclo', 'meses', 'materia', 'promedio', 'notas'));
     }
 
     /**
@@ -36,10 +50,6 @@ class CalificacionesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        return view('calificaciones.create');
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -47,9 +57,23 @@ class CalificacionesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $ciclo, $nivel, $grupo, $alumno)
     {
-        //
+        $ciclo = Ciclo::findOrFail($ciclo);
+        $nivel = Nivel::findOrFail($nivel);
+        $grupo = Grupo::findOrFail($grupo);
+        $alumno = Alumno::findOrFail($alumno);
+
+        $nota = Note::create([
+            'note' => $request['note'],
+            'month_id' => $request['mes'],
+            'alumno_id' => $alumno->id,
+            'materia_id' => $request['materia']
+        ]);
+
+        return redirect()->back();
+
+
     }
 
     /**
@@ -58,7 +82,7 @@ class CalificacionesController extends Controller
      * @param  \App\Models\Calificacion  $calificacion
      * @return \Illuminate\Http\Response
      */
-    public function show(Grade $calificacion)
+    public function show()
     {
         //
     }
@@ -69,7 +93,7 @@ class CalificacionesController extends Controller
      * @param  \App\Models\Calificacion  $calificacion
      * @return \Illuminate\Http\Response
      */
-    public function edit(Grade $calificacion)
+    public function edit()
     {
         //
     }
@@ -81,9 +105,20 @@ class CalificacionesController extends Controller
      * @param  \App\Models\Calificacion  $calificacion
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Grade $calificacion)
+    public function update(Request $request, $ciclo, $nivel, $grupo, $alumno, $notas)
     {
-        //
+        $data = $request->get('note', []);
+
+        $ciclo = Ciclo::findOrFail($ciclo);
+        $nivel = Nivel::findOrFail($nivel);
+        $grupo = Grupo::findOrFail($grupo);
+        $alumno = Alumno::findOrFail($alumno);
+
+        $nota = Note::where('alumno_id', $alumno->id)->update(['note' => $request->note]);
+
+        return $data;
+
+
     }
 
     /**
@@ -92,7 +127,7 @@ class CalificacionesController extends Controller
      * @param  \App\Models\Calificacion  $calificacion
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Grade $calificacion)
+    public function destroy()
     {
         //
     }

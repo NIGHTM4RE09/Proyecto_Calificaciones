@@ -81,4 +81,7 @@
     <link rel="stylesheet" href="{{ asset('css/lib/font-awesome/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/lib/bootstrap/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+
+    <link rel="stylesheet" href="{{asset('css/separate/pages/files.min.css')}}">
+
 </head>

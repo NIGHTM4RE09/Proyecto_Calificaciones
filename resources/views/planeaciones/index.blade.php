@@ -145,24 +145,26 @@
                         @foreach ($planeaciones as $planeacion)
                             @if ($planeacion->nivel_academico == 'Primaria')
                                 <div class="col-12 col-md-4 col-lg-3">
-                                    <div class="card border-warning fm-file" style="width: 15rem;">
-                                        <img src="{{ asset('img/file-pdf.png') }}" class="rounded mx-auto d-block py-2"
-                                            alt="pdf">
-                                        <div class="card-body">
-                                            <h5 class="card-tittle">
-                                                @foreach ($user as $item)
-                                                    @if ($item->id == $planeacion->user_id)
-                                                        Docente: {{ $item->name }}
-                                                    @endif
-                                                @endforeach
-                                            </h5>
-                                            <p class="card-text">Nivel: {{ $planeacion->nivel_academico }}</p>
-                                            <p class="card-text">Grado: {{ $planeacion->grado }}</p>
+                                    <a href="{{ Storage::url($planeacion->planeacion) }}" target="_blank" rel="noopener noreferrer">
+                                        <div class="card border-warning fm-file" style="width: 15rem;">
+                                            <img src="{{ asset('img/file-pdf.png') }}" class="rounded mx-auto d-block py-2"
+                                                alt="pdf">
+                                            <div class="card-body">
+                                                <h5 class="card-tittle">
+                                                    @foreach ($user as $item)
+                                                        @if ($item->id == $planeacion->user_id)
+                                                            Docente: {{ $item->name }}
+                                                        @endif
+                                                    @endforeach
+                                                </h5>
+                                                <p class="card-text">Nivel: {{ $planeacion->nivel_academico }}</p>
+                                                <p class="card-text">Grado: {{ $planeacion->grado }}</p>
+                                            </div>
+                                            <div class="card-body">
+                                                <p class="card-text">Semana del : {{ $planeacion->semana }}</p>
+                                            </div>
                                         </div>
-                                        <div class="card-body">
-                                            <p class="card-text">Semana del : {{ $planeacion->semana }}</p>
-                                        </div>
-                                    </div>
+                                    </a>
                                 </div>
                             @endif
                         @endforeach
@@ -176,24 +178,26 @@
                         @foreach ($planeaciones as $planeacion)
                             @if ($planeacion->nivel_academico == 'Secundaria')
                                 <div class="col-12 col-md-4 col-lg-3">
-                                    <div class="card border-warning fm-file" style="width: 15rem;">
-                                        <img src="{{ asset('img/file-pdf.png') }}" class="rounded mx-auto d-block py-2"
-                                            alt="pdf">
-                                        <div class="card-body">
-                                            <h5 class="card-tittle">
-                                                @foreach ($user as $item)
-                                                    @if ($item->id == $planeacion->user_id)
-                                                        Docente: {{ $item->name }}
-                                                    @endif
-                                                @endforeach
-                                            </h5>
-                                            <p class="card-text">Nivel: {{ $planeacion->nivel_academico }}</p>
-                                            <p class="card-text">Grado: {{ $planeacion->grado }}</p>
+                                    <a href="{{ Storage::url($planeacion->planeacion) }}" target="_blank" rel="noopener noreferrer">
+                                        <div class="card border-warning fm-file" style="width: 15rem;">
+                                            <img src="{{ asset('img/file-pdf.png') }}" class="rounded mx-auto d-block py-2"
+                                                alt="pdf">
+                                            <div class="card-body">
+                                                <h5 class="card-tittle">
+                                                    @foreach ($user as $item)
+                                                        @if ($item->id == $planeacion->user_id)
+                                                            Docente: {{ $item->name }}
+                                                        @endif
+                                                    @endforeach
+                                                </h5>
+                                                <p class="card-text">Nivel: {{ $planeacion->nivel_academico }}</p>
+                                                <p class="card-text">Grado: {{ $planeacion->grado }}</p>
+                                            </div>
+                                            <div class="card-body">
+                                                <p class="card-text">Semana del : {{ $planeacion->semana }}</p>
+                                            </div>
                                         </div>
-                                        <div class="card-body">
-                                            <p class="card-text">Semana del : {{ $planeacion->semana }}</p>
-                                        </div>
-                                    </div>
+                                    </a>
                                 </div>
                             @endif
                         @endforeach
@@ -207,24 +211,26 @@
                         @foreach ($planeaciones as $planeacion)
                             @if ($planeacion->nivel_academico == 'Preparatoria')
                                 <div class="col-12 col-md-4 col-lg-3">
-                                    <div class="card border-warning fm-file" style="width: 15rem;">
-                                        <img src="{{ asset('img/file-pdf.png') }}" class="rounded mx-auto d-block py-2"
-                                            alt="pdf">
-                                        <div class="card-body">
-                                            <h5 class="card-tittle">
-                                                @foreach ($user as $item)
-                                                    @if ($item->id == $planeacion->user_id)
-                                                        Docente: {{ $item->name }}
-                                                    @endif
-                                                @endforeach
-                                            </h5>
-                                            <p class="card-text">Nivel: {{ $planeacion->nivel_academico }}</p>
-                                            <p class="card-text">Grado: {{ $planeacion->grado }}</p>
+                                    <a href="{{ Storage::url($planeacion->planeacion) }}" target="_blank" rel="noopener noreferrer">
+                                        <div class="card border-warning fm-file" style="width: 15rem;">
+                                            <img src="{{ asset('img/file-pdf.png') }}" class="rounded mx-auto d-block py-2"
+                                                alt="pdf">
+                                            <div class="card-body">
+                                                <h5 class="card-tittle">
+                                                    @foreach ($user as $item)
+                                                        @if ($item->id == $planeacion->user_id)
+                                                            Docente: {{ $item->name }}
+                                                        @endif
+                                                    @endforeach
+                                                </h5>
+                                                <p class="card-text">Nivel: {{ $planeacion->nivel_academico }}</p>
+                                                <p class="card-text">Grado: {{ $planeacion->grado }}</p>
+                                            </div>
+                                            <div class="card-body">
+                                                <p class="card-text">Semana del : {{ $planeacion->semana }}</p>
+                                            </div>
                                         </div>
-                                        <div class="card-body">
-                                            <p class="card-text">Semana del : {{ $planeacion->semana }}</p>
-                                        </div>
-                                    </div>
+                                    </a>
                                 </div>
                             @endif
                         @endforeach
